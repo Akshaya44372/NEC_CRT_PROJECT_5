@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .summary-content {
+            white-space: pre-line;
+            line-height: 1.6;
+            text-align: left;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        .flow-item {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Text Summarizer</h1>
+        <form method="POST">
+            <div class="input-container">
+                <textarea
+                    name="paragraph"
+                    placeholder="Enter your text here..."
+                    required>{{ text }}</textarea>
+                <button type="submit">Summarize</button>
+            </div>
+        </form>
+
+        {% if summary %}
+        <div class="summary-box">
+            <h2>Detailed Summary Flow</h2>
+            <div class="summary-content">{{ summary }}</div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
